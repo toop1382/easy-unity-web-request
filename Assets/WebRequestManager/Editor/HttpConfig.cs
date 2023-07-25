@@ -5,7 +5,7 @@ namespace WebRequestManager.Editor
 {
     public class HttpConfig : EditorWindow
     {
-        [MenuItem("WebRequestManager/HttpConfig")]
+        [MenuItem("Window/WebRequestManager/HttpConfig")]
         private static void ShowWindow()
         {
             var activeObject = Resources.Load("HttpConfig");

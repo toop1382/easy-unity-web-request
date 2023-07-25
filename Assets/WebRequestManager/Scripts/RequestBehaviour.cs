@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
 
-public class RequestBehaviour : MonoBehaviour
+namespace WebRequestManager.Scripts
 {
-    private void Awake()
+    public class RequestBehaviour : MonoBehaviour
     {
-        DontDestroyOnLoad(this);
+        private void Awake()
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 }

@@ -1,19 +1,28 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using WebRequestManager.Scripts;
 
-
-public class Test : MonoBehaviour
+namespace WebRequestManager.Sample
 {
-    private void Start()
+    public class Test : MonoBehaviour
     {
-        Http.AddDefaultHeader("App-Version", Application.version);
-        Http.AddDefaultHeader("Device-Id", SystemInfo.deviceUniqueIdentifier);
-        Http.AddDefaultError((s, y) => Debug.Log(s));
-    }
+        [SerializeField] private RawImage rawImage;
 
-    public void SetAction()
-    {
-        Http.Get("http://worldtimeapi.org/api/timezone/Europe/Helsinki", (s) => { Debug.Log(s.text); });
+        private void Start()
+        {
+            Http.AddDefaultHeader("App-Version", Application.version);
+            Http.AddDefaultHeader("Device-Id", SystemInfo.deviceUniqueIdentifier);
+            Http.AddDefaultError((errorText, errorCode) => Debug.Log(errorText));
+            Http.AddDefaultComplete(handler => Debug.Log(handler.text));
+        }
+
+        public void SetAction()
+        {
+            Http.Post("https://*****.***", "body", (s) => { Debug.Log(s.text); });
+            Http.Put("https://*****.***", "RequestBody", (downloadHandler) => Debug.Log(downloadHandler.text),
+                (errorText, errorCode) => Debug.Log(errorText + errorCode));
+            Http.GetTextureWithCache("https://*****.***", (texture2D => rawImage.texture = texture2D),
+                (errorText, errorCode) => Debug.Log(errorText + errorCode));
+        }
     }
 }
