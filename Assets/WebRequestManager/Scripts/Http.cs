@@ -41,9 +41,9 @@ public static class Http
         defaultError.Remove(onError);
     }
 
-    public static void AddDefaultComplete(Action<DownloadHandler> onError)
+    public static void AddDefaultComplete(Action<DownloadHandler> onComplete)
     {
-        defaultComplete.Add(onError);
+        defaultComplete.Add(onComplete);
     }
 
     public static void RemoveDefaultComplete(Action<DownloadHandler> onError)
