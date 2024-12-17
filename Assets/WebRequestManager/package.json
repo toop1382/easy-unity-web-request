@@ -1,12 +1,12 @@
 {
   "name": "com.peakypie.webrequest",
   "version": "0.1.0",
-  "displayName": "sonario",
+  "displayName": "webrequest",
   "description": "Ultimate Voice Chat System.",
   "unity": "2020.3",   
   "dependencies": {
   },
-  "keywords": ["Voice", "Chat","Voice Chat","Ultimate"],
+  "keywords": ["webrequest"],
   "author": {
     "name": "Mohammad Khosravi",
     "email": "toop1382@gmail.com",
